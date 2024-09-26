@@ -15,10 +15,9 @@ from nerf.core.callbacks import ParquetBatchWriter
     requests=fk.Resources(gpu="1", cpu="16", mem="32Gi"),
     accelerator=fk.extras.accelerators.A100,
     cache=True,
-    cache_version='#cache-v1',
+    cache_version="#cache-v1",
 )
 def fit(params: Hyperparameters, image: FlyteFile) -> tuple[FlyteFile, FlyteFile]:
-    
     datapath = Path(fk.current_context().working_directory) / "results.parquet"
 
     module = NeRFModule(params=params, image=str(image.path))
@@ -30,8 +29,8 @@ def fit(params: Hyperparameters, image: FlyteFile) -> tuple[FlyteFile, FlyteFile
     )
 
     trainer.fit(module)
-    
+
     predictions = FlyteFile(str(datapath))
     model = FlyteFile(trainer.checkpoint_callback.best_model_path)
-    
+
     return predictions, model

@@ -15,7 +15,7 @@ class CoordinateTensor:
 
     @property
     def xy(self) -> torch.Tensor:
-        return torch.cat((self.x, self.y), dim=1)\
+        return torch.cat((self.x, self.y), dim=1)
 
 
 @tensorclass
@@ -27,11 +27,11 @@ class PixelTensor:
     @property
     def rgb(self) -> torch.Tensor:
         return torch.cat((self.red, self.green, self.blue), dim=1)
-    
+
     @property
     def normalized(self) -> torch.Tensor:
-        return self.rgb.mul(1/MAXBYTEVALUE)
-    
+        return self.rgb.mul(1 / MAXBYTEVALUE)
+
     @classmethod
     def convert(self, predictions: torch.Tensor) -> torch.Tensor:
         return predictions.mul(MAXBYTEVALUE).type(torch.int32)
@@ -39,14 +39,12 @@ class PixelTensor:
 
 @tensorclass
 class InputTensor:
-
     coordinates: CoordinateTensor
     color: PixelTensor
 
 
 @dataclass
 class Hyperparameters:
-
     batch_size: Annotated[int, Field(gt=0, le=2048)] = 256
     n_workers: Annotated[int, Field(ge=0, le=256)] = 4
     d_model: Annotated[int, Field(gt=1, le=256)] = 64

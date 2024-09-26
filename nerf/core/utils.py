@@ -7,12 +7,12 @@ import dataclasses
 
 
 def permutate_params(
-        base: Hyperparameters,
-        d_model: typing.Optional[typing.Iterable[int]] = None,
-        n_bands: typing.Optional[typing.Iterable[int]] = None,
-        n_layers: typing.Optional[typing.Iterable[int]] = None,
-        offset: typing.Optional[typing.Iterable[int]] = None,
-        learning_rate: typing.Optional[typing.Iterable[float]] = None,
+    base: Hyperparameters,
+    d_model: typing.Optional[typing.Iterable[int]] = None,
+    n_bands: typing.Optional[typing.Iterable[int]] = None,
+    n_layers: typing.Optional[typing.Iterable[int]] = None,
+    offset: typing.Optional[typing.Iterable[int]] = None,
+    learning_rate: typing.Optional[typing.Iterable[float]] = None,
 ) -> typing.List[Hyperparameters]:
     """
     Helper function to generate a list of Hyperparameters for testing & optimizing.
@@ -23,7 +23,7 @@ def permutate_params(
         "n_bands": n_bands,
         "n_layers": n_layers,
         "offset": offset,
-        "learning_rate": learning_rate
+        "learning_rate": learning_rate,
     }
     params = OrderedDict({k: v for k, v in params.items() if v is not None})
 

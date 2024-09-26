@@ -15,9 +15,7 @@ def get(tensor: torch.Tensor) -> np.ndarray:
 
 
 class ParquetBatchWriter(callbacks.Callback):
-
     def __init__(self, path: str | os.PathLike):
-
         super().__init__()
 
         self.path: str = str(path)
@@ -32,20 +30,20 @@ class ParquetBatchWriter(callbacks.Callback):
         batch: InputTensor,
         batch_idx: int,
     ) -> None:
-        
         if trainer.sanity_checking:
             return
 
-        df = pl.DataFrame({
-            "epoch": [pl_module.current_epoch] * int(batch.batch_size[0]),
-            "coordinates": get(batch.coordinates.xy),
-            "color": get(outputs['predictions']),
-        })
-        
+        df = pl.DataFrame(
+            {
+                "epoch": [pl_module.current_epoch] * int(batch.batch_size[0]),
+                "coordinates": get(batch.coordinates.xy),
+                "color": get(outputs["predictions"]),
+            }
+        )
+
         table = df.to_arrow()
 
         if self.writer is None:
-
             print(df)
 
             self.schema = table.schema
@@ -54,7 +52,6 @@ class ParquetBatchWriter(callbacks.Callback):
         self.writer.write_table(table)
 
     def on_fit_end(self, trainer: lit.Trainer, pl_module: lit.LightningModule) -> None:
-
         if self.writer:
             self.writer.close()
             self.writer = None

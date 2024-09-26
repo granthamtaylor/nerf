@@ -24,4 +24,3 @@ def test_permute_product():
     )
 
     assert len(new_params) == 72
-
