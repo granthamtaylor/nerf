@@ -13,6 +13,7 @@ from nerf.core.structs import InputTensor
 def get(tensor: torch.Tensor) -> np.ndarray:
     return tensor.cpu().detach().numpy()
 
+
 class ParquetBatchWriter(callbacks.Callback):
 
     def __init__(self, path: str | os.PathLike):

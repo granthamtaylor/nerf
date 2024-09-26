@@ -7,23 +7,23 @@ import torch
 
 MAXBYTEVALUE = 255
 
+
 @tensorclass
 class CoordinateTensor:
-
     x: torch.Tensor
     y: torch.Tensor
 
     @property
     def xy(self) -> torch.Tensor:
-        return torch.cat((self.x, self.y), dim=1)
+        return torch.cat((self.x, self.y), dim=1)\
+
 
 @tensorclass
 class PixelTensor:
-
     red: torch.Tensor
     green: torch.Tensor
     blue: torch.Tensor
-    
+
     @property
     def rgb(self) -> torch.Tensor:
         return torch.cat((self.red, self.green, self.blue), dim=1)
@@ -34,7 +34,7 @@ class PixelTensor:
     
     @classmethod
     def convert(self, predictions: torch.Tensor) -> torch.Tensor:
-        return predictions.mul(MAXBYTEVALUE).type(torch.uint8)
+        return predictions.mul(MAXBYTEVALUE).type(torch.int32)
 
 
 @tensorclass
@@ -52,7 +52,7 @@ class Hyperparameters:
     d_model: Annotated[int, Field(gt=1, le=256)] = 64
     n_bands: Annotated[int, Field(gt=1, le=16)] = 8
     n_layers: Annotated[int, Field(gt=1, le=64)] = 4
-    offset: Annotated[int, Field(gt=1, le=512)] = 2
+    offset: Annotated[int, Field(gt=0, le=512)] = 2
     max_epochs: Annotated[int, Field(gt=0, le=1028)] = 4
     learning_rate: Annotated[float, Field(gt=0.0, lt=1.0)] = 0.001
     patience: Annotated[int, Field(ge=1, le=256)] = 16

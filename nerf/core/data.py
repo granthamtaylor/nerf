@@ -47,14 +47,12 @@ class BitMapIterator(torch.utils.data.IterableDataset):
             
             if index % n_workers == worker:
         
-                colors = torch.tensor(self.data[x, y]).split(1, dim=0)
+                colors = torch.tensor(self.data[x, y], dtype=torch.int32).split(1, dim=0)
                 
                 yield InputTensor(
                     coordinates=CoordinateTensor(torch.tensor([x]), torch.tensor([y])),
                     color=PixelTensor(*colors),
                 )
                 
-            
-
     def __iter__(self):
         return iter(self.generate())

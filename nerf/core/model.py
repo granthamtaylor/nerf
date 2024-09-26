@@ -117,6 +117,7 @@ MAPPING: dict[str, list[str]] = dict(
     predict=["predict"],
 )
 
+
 class NeRFModule(lit.LightningModule):
     
     def __init__(
