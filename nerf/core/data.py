@@ -24,7 +24,7 @@ class BitMapIterator(torch.utils.data.IterableDataset):
 
         print(f"shape: {shape}")
 
-        if C != 3:
+        if C != 4:
             raise ValueError("image must have 3 channels (RGB)")
 
     def __len__(self) -> int:

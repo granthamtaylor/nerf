@@ -23,17 +23,18 @@ class PixelTensor:
     red: torch.Tensor
     green: torch.Tensor
     blue: torch.Tensor
+    aaa: torch.Tensor
 
     @property
     def rgb(self) -> torch.Tensor:
-        return torch.cat((self.red, self.green, self.blue), dim=1)
+        return torch.cat((self.red, self.green, self.blue, self.aaa), dim=1)
 
     @property
     def normalized(self) -> torch.Tensor:
         return self.rgb.mul(1 / MAXBYTEVALUE)
 
     @classmethod
-    def convert(self, predictions: torch.Tensor) -> torch.Tensor:
+    def convert(cls, predictions: torch.Tensor) -> torch.Tensor:
         return predictions.mul(MAXBYTEVALUE).type(torch.int32)
 
 

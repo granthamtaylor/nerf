@@ -11,6 +11,7 @@ from nerf.orchestration import image
 
 @flytekit.task(container_image=image, enable_deck=True)
 def animate(predictions: FlyteFile) -> int:
+    print(f"Animating {predictions.path}")
     df = pl.read_parquet(predictions.path).select(
         t=pl.col("epoch"),
         x=pl.col("coordinates").arr.first(),
@@ -19,14 +20,20 @@ def animate(predictions: FlyteFile) -> int:
     )
 
     # fill in missing
-    maxes = df.select(pl.max("x"), pl.max("y"))
+    maxes = df.select(pl.max("x"), pl.max("y"), pl.max("t"))
     max_x = maxes["x"][0] + 1
     max_y = maxes["y"][0] + 1
+    num_epochs = maxes["t"][0] + 1
 
-    cartesian_product = list(product(range(max_x), range(max_y)))
-    xys = pl.DataFrame({"x": [x for x, y in cartesian_product], "y": [y for x, y in cartesian_product]}).sort("x", "y")
+    cartesian_product = list(product(range(max_x), range(max_y), range(num_epochs)))
+    # Create a DataFrame from the Cartesian product
+    xys = pl.DataFrame({
+        "t": [z for x, y, z in cartesian_product],
+        "x": [x for x, y, z in cartesian_product],
+        "y": [y for x, y, z in cartesian_product]
+    }).sort("t", "x", "y")
 
-    joined = xys.join(df, on=["x", "y"], how="left", coalesce=True)
+    joined = xys.join(df, on=["t", "x", "y"], how="left", coalesce=True)
     filled = joined.fill_null(strategy="forward")
 
     final = filled.sort("t", "x", "y").group_by("t", "x").agg("c").sort("t", "x").group_by("t").agg("c").get_column("c")

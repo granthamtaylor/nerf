@@ -38,7 +38,7 @@ class MLP(torch.nn.Module):
     def __init__(self, params: Hyperparameters):
         super().__init__()
 
-        C = 3
+        C = 4
 
         layers = []
 
