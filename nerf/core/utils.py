@@ -16,7 +16,6 @@ def permutate_params(
 ) -> typing.List[Hyperparameters]:
     """
     Helper function to generate a list of Hyperparameters for testing & optimizing.
-    Runs at compile time, this is not a task. Output is hard-coded as static input to task or workflow.
     """
     params = {
         "d_model": d_model,
