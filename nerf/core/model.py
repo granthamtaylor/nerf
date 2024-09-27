@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import math
 import os
 from functools import partialmethod
@@ -86,7 +88,7 @@ class MLP(torch.nn.Module):
         return self.model(inputs)
 
 
-def dataloader(self: "NeRFModule", strata: str) -> DataLoader:
+def dataloader(self: NeRFModule, strata: str) -> DataLoader:
     assert strata in ["train", "validate", "test", "predict"]
 
     pipe = self.pipes[strata]
@@ -103,7 +105,7 @@ def dataloader(self: "NeRFModule", strata: str) -> DataLoader:
     return loader
 
 
-def step(self: "NeRFModule", inputs: InputTensor, strata: str) -> dict[str, torch.Tensor]:
+def step(self: NeRFModule, inputs: InputTensor, strata: str) -> dict[str, torch.Tensor]:
     assert strata in ["train", "validate", "test", "predict"]
 
     predictions = self.forward(inputs.coordinates)
