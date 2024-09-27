@@ -3,7 +3,7 @@ dev:
   @poetry run union run nerf/workflows/train.py train --image='pie.jpg'
 
 # run workflow on remote
-run: freeze
+run:
   @poetry run union run --remote --copy-all nerf/workflows/train.py train --image='pie.jpg'
 
 # register workflow to remote

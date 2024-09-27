@@ -2,13 +2,13 @@
 #    uv pip compile pyproject.toml --python-platform linux
 adlfs==2024.7.0
     # via flytekit
-aiobotocore==2.15.0
+aiobotocore==2.15.1
     # via s3fs
 aiofiles==24.1.0
     # via union
-aiohappyeyeballs==2.4.0
+aiohappyeyeballs==2.4.2
     # via aiohttp
-aiohttp==3.10.5
+aiohttp==3.10.6
     # via
     #   adlfs
     #   aiobotocore
@@ -35,13 +35,13 @@ azure-core==1.31.0
     #   azure-storage-blob
 azure-datalake-store==0.0.53
     # via adlfs
-azure-identity==1.17.1
+azure-identity==1.18.0
     # via adlfs
-azure-storage-blob==12.23.0
+azure-storage-blob==12.23.1
     # via adlfs
 backports-tarfile==1.2.0
     # via jaraco-context
-botocore==1.35.16
+botocore==1.35.23
     # via aiobotocore
 cachetools==5.5.0
     # via google-auth
@@ -107,15 +107,15 @@ flyteidl==1.13.4
     #   union
 flytekit==1.13.5
     # via
-    #   calc (pyproject.toml)
+    #   nerf (pyproject.toml)
     #   flytekitplugins-deck-standard
     #   flytekitplugins-envd
     #   union
 flytekitplugins-deck-standard==1.13.5
-    # via calc (pyproject.toml)
+    # via nerf (pyproject.toml)
 flytekitplugins-envd==1.13.5
-    # via calc (pyproject.toml)
-fonttools==4.53.1
+    # via nerf (pyproject.toml)
+fonttools==4.54.1
     # via matplotlib
 frozenlist==1.4.1
     # via
@@ -133,11 +133,11 @@ fsspec==2024.9.0
     #   union
 gcsfs==2024.9.0.post1
     # via flytekit
-google-api-core==2.19.2
+google-api-core==2.20.0
     # via
     #   google-cloud-core
     #   google-cloud-storage
-google-auth==2.34.0
+google-auth==2.35.0
     # via
     #   gcsfs
     #   google-api-core
@@ -183,6 +183,8 @@ imagehash==4.3.1
     # via
     #   visions
     #   ydata-profiling
+imageio==2.35.1
+    # via scikit-image
 importlib-metadata==8.5.0
     # via
     #   flytekit
@@ -198,7 +200,7 @@ jaraco-classes==3.4.0
     # via keyring
 jaraco-context==6.0.1
     # via keyring
-jaraco-functools==4.0.2
+jaraco-functools==4.1.0
     # via keyring
 jedi==0.19.1
     # via ipython
@@ -223,14 +225,16 @@ jsonpickle==3.3.0
     # via flytekit
 jupyterlab-widgets==3.0.13
     # via ipywidgets
-keyring==25.4.0
+keyring==25.4.1
     # via
     #   flytekit
     #   union
 kiwisolver==1.4.7
     # via matplotlib
+lazy-loader==0.4
+    # via scikit-image
 lightning==2.4.0
-    # via calc (pyproject.toml)
+    # via nerf (pyproject.toml)
 lightning-utilities==0.11.7
     # via
     #   lightning
@@ -259,7 +263,6 @@ marshmallow-jsonschema==0.13.0
     # via flytekit
 mashumaro==3.13.1
     # via
-    #   calc (pyproject.toml)
     #   flytekit
     #   union
 matplotlib==3.9.2
@@ -297,27 +300,30 @@ mypy-extensions==1.0.0
     # via typing-inspect
 networkx==3.3
     # via
+    #   scikit-image
     #   torch
     #   visions
 numba==0.60.0
     # via ydata-profiling
 numpy==1.26.4
     # via
-    #   calc (pyproject.toml)
+    #   nerf (pyproject.toml)
     #   contourpy
     #   imagehash
+    #   imageio
     #   matplotlib
     #   numba
     #   pandas
     #   patsy
     #   phik
     #   pyarrow
-    #   pytdigest
     #   pywavelets
+    #   scikit-image
     #   scipy
     #   seaborn
     #   statsmodels
     #   tensordict
+    #   tifffile
     #   torchmetrics
     #   visions
     #   wordcloud
@@ -357,19 +363,20 @@ oauthlib==3.2.2
     # via requests-oauthlib
 packaging==24.1
     # via
+    #   lazy-loader
     #   lightning
     #   lightning-utilities
     #   marshmallow
     #   matplotlib
     #   plotly
     #   pytorch-lightning
+    #   scikit-image
     #   statsmodels
     #   torchmetrics
-pandas==2.2.2
+pandas==2.2.3
     # via
     #   flytekitplugins-deck-standard
     #   phik
-    #   pytdigest
     #   seaborn
     #   statsmodels
     #   visions
@@ -384,19 +391,22 @@ phik==0.12.4
     # via ydata-profiling
 pillow==10.4.0
     # via
+    #   nerf (pyproject.toml)
     #   imagehash
+    #   imageio
     #   matplotlib
+    #   scikit-image
     #   visions
     #   wordcloud
 plotly==5.24.1
     # via
-    #   calc (pyproject.toml)
+    #   nerf (pyproject.toml)
     #   flytekitplugins-deck-standard
-polars==1.7.1
-    # via calc (pyproject.toml)
+polars==1.8.2
+    # via nerf (pyproject.toml)
 portalocker==2.10.1
     # via msal-extensions
-prompt-toolkit==3.0.47
+prompt-toolkit==3.0.48
     # via ipython
 proto-plus==1.24.0
     # via google-api-core
@@ -416,7 +426,7 @@ ptyprocess==0.7.0
 pure-eval==0.2.3
     # via stack-data
 pyarrow==17.0.0
-    # via calc (pyproject.toml)
+    # via nerf (pyproject.toml)
 pyasn1==0.6.1
     # via
     #   pyasn1-modules
@@ -427,7 +437,7 @@ pycparser==2.22
     # via cffi
 pydantic==2.9.2
     # via
-    #   calc (pyproject.toml)
+    #   nerf (pyproject.toml)
     #   ydata-profiling
 pydantic-core==2.23.4
     # via pydantic
@@ -441,8 +451,6 @@ pyjwt==2.9.0
     # via msal
 pyparsing==3.1.4
     # via matplotlib
-pytdigest==0.1.4
-    # via calc (pyproject.toml)
 python-dateutil==2.9.0.post0
     # via
     #   botocore
@@ -495,10 +503,13 @@ rsa==4.9
     # via google-auth
 s3fs==2024.9.0
     # via flytekit
+scikit-image==0.24.0
+    # via nerf (pyproject.toml)
 scipy==1.13.1
     # via
     #   imagehash
     #   phik
+    #   scikit-image
     #   statsmodels
     #   ydata-profiling
 seaborn==0.13.2
@@ -527,10 +538,12 @@ sympy==1.13.3
 tenacity==9.0.0
     # via plotly
 tensordict==0.4.0
-    # via calc (pyproject.toml)
+    # via nerf (pyproject.toml)
+tifffile==2024.9.20
+    # via scikit-image
 torch==2.4.1
     # via
-    #   calc (pyproject.toml)
+    #   nerf (pyproject.toml)
     #   lightning
     #   pytorch-lightning
     #   tensordict
@@ -574,10 +587,10 @@ typing-extensions==4.12.2
     #   union
 typing-inspect==0.9.0
     # via dataclasses-json
-tzdata==2024.1
+tzdata==2024.2
     # via pandas
-union==0.1.76
-    # via calc (pyproject.toml)
+union==0.1.81
+    # via nerf (pyproject.toml)
 unionai-actor==0.1.1
     # via union
 urllib3==2.2.3
@@ -588,7 +601,7 @@ urllib3==2.2.3
     #   requests
     #   sentry-sdk
 uv==0.2.37
-    # via calc (pyproject.toml)
+    # via nerf (pyproject.toml)
 visions==0.7.6
     # via ydata-profiling
 wcwidth==0.2.13
@@ -599,7 +612,7 @@ wordcloud==1.9.3
     # via ydata-profiling
 wrapt==1.16.0
     # via aiobotocore
-yarl==1.11.1
+yarl==1.13.1
     # via aiohttp
 ydata-profiling==4.10.0
     # via flytekitplugins-deck-standard

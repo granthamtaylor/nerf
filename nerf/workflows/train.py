@@ -1,35 +1,31 @@
-import typing
 from functools import partial
 
 import flytekit as fk
 from flytekit.types.file import FlyteFile
 
 from nerf import tasks
-from nerf.core.structs import Hyperparameters
-from nerf.tasks.params import hp_grid_search
-from nerf.tasks.fit import fit_no_predictions
-from nerf.tasks.test import TestResults
+from nerf.core.structs import Metric
 
 
 @fk.workflow
 def train(
     image: FlyteFile,
-    params: Hyperparameters = Hyperparameters(),
-) -> FlyteFile:
-    predictions, model = tasks.fit(params=params, image=image)
-    tasks.animate(predictions=predictions)
-    tasks.test(model=model, image=image, params=params)
-    return model
+    overrides: dict[str, list[float | int]] = {
+        "d_model": [8, 12, 16, 24, 32],
+        "n_bands": [8, 10],
+        "n_layers": [2, 3, 4],
+        "offset": [1, 2],
+    }
+) -> list[Metric]:
+    
+    grid = tasks.gridsearch(overrides=overrides)
+    results = fk.map_task(partial(tasks.fit, image=image))(params=grid)
+    scores = fk.map_task(partial(tasks.test, image=image))(result=results)
 
+    fk.map_task(tasks.animate)(result=results)
+    tasks.plot(scores=scores)
 
-@fk.workflow
-def hp_search(image: FlyteFile, base_params: Hyperparameters = Hyperparameters()) -> typing.List[TestResults]:
-    hps_to_try = hp_grid_search(base=base_params)
-
-    models = fk.map_task(partial(fit_no_predictions, image=image))(params=hps_to_try)
-    results = fk.map_task(partial(tasks.test, image=image))(model=models, params=hps_to_try)
-    return results
-
+    return scores
 
 if __name__ == "__main__":
     train()

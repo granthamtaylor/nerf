@@ -44,7 +44,6 @@ class ParquetBatchWriter(callbacks.Callback):
         table = df.to_arrow()
 
         if self.writer is None:
-            print(df)
 
             self.schema = table.schema
             self.writer = pq.ParquetWriter(self.path, self.schema)
