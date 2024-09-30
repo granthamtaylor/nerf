@@ -14,7 +14,6 @@ def train(
         "d_model": [8, 12, 16, 24, 32],
         "n_bands": [8, 10],
         "n_layers": [2, 3, 4],
-        "offset": [1, 2],
     }
 ) -> list[Metric]:
     

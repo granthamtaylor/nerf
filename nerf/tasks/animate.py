@@ -43,8 +43,8 @@ def animate(result: Result):
         }
     )
 
-    # render = plotly.io.to_html(fig)
+    render = plotly.io.to_html(fig, include_plotlyjs=False)
 
-    # print(len(render))
+    print(len(render))
 
     # flytekit.Deck("my_plot", html=render)
