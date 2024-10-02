@@ -10,6 +10,16 @@ from nerf.core.structs import Hyperparameters
 from nerf.core.callbacks import ParquetBatchWriter
 
 
+@fk.task
+def show_file(img: FlyteFile):
+    print(img.path)
+
+
+@fk.task
+def hello_world():
+    print("Hello World!")
+
+
 @fk.task(
     container_image=image,
     requests=fk.Resources(gpu="1", cpu="16", mem="32Gi"),
