@@ -1,14 +1,14 @@
 # run workflow locally
 dev:
-  @poetry run union run nerf/workflows/train.py train --image='papas10.jpg'
+  @uv run union run nerf/workflows/train.py train --image='images/pie.jpg'
 
 # run workflow on remote
-run:
-  @poetry run union run --remote --copy-all nerf/workflows/train.py train --image='papas10.jpg'
+run: freeze
+  @uv run union run --remote --copy auto nerf/workflows/train.py train
 
 # register workflow to remote
 register: freeze
-  @poetry run union register nerf
+  @uv run union register nerf
 
 freeze:
-  @poetry run uv pip compile pyproject.toml > requirements.txt --python-platform linux
+  @uv pip compile pyproject.toml > requirements.txt --python-platform linux

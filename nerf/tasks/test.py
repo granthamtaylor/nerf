@@ -5,7 +5,7 @@ import flytekit as fk
 from flytekit.types.file import FlyteFile
 
 from nerf.core.model import NeRFModule
-from nerf.orchestration import image
+from nerf.orchestration.images import image
 from nerf.core.structs import Metric, Result
 
 @fk.task(

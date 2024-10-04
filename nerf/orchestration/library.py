@@ -2,8 +2,9 @@ import os
 import pkgutil
 import inspect
 from types import ModuleType
+
 from flytekit.core.python_function_task import PythonFunctionTask
-from nerf import tasks  # Ensure this is an absolute import
+# from nerf import tasks
 
 class TaskLibrary:
     def __init__(self, module: ModuleType):
@@ -45,7 +46,7 @@ class TaskLibrary:
                 
         return out
 
-# Example usage:
-if __name__ == "__main__":
-    library = TaskLibrary(tasks)
-    print(task_library.tasks)
+# # Example usage:
+# if __name__ == "__main__":
+#     library = TaskLibrary(tasks)
+#     print(library.tasks)

@@ -5,7 +5,7 @@ import polars as pl
 import numpy as np
 import plotly.express as px
 
-from nerf.orchestration import image
+from nerf.orchestration.images import image
 from nerf.core.structs import Result
 
 

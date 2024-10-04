@@ -9,7 +9,7 @@ from nerf.core.structs import Metric
 
 @fk.workflow
 def train(
-    image: FlyteFile,
+    image: FlyteFile=FlyteFile('images/papas.jpg'),
     overrides: dict[str, list[float | int]] = {
         "d_model": [8, 12, 16, 24, 32],
         "n_bands": [8, 10],
