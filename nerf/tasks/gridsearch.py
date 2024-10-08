@@ -4,16 +4,18 @@ import flytekit as fk
 from rich.pretty import pprint
 
 from nerf.orchestration.images import image
-from nerf.core.structs import Hyperparameters
+from nerf.core.structs import Hyperparameters, SearchSpace
 
-@fk.task(container_image=image)
-def gridsearch(overrides: dict[str, list[float|int]]) -> list[Hyperparameters]:
+@fk.task(container_image=image, cache=True, cache_version="#cache-v1",)
+def gridsearch(searchspace: SearchSpace) -> list[Hyperparameters]:
     
-    combination = product(*[v if isinstance(v, (list, tuple)) else [v] for v in overrides.values()])
     
-    configs = [dict(zip(overrides.keys(), values)) for values in combination]
-
-    grid = [Hyperparameters(**config) for config in configs]
+    overrides = {key: value for key, value in vars(searchspace).items() if value is not None}
+    
+    keys = list(overrides.keys())
+    values = list(overrides.values())
+    
+    grid = [Hyperparameters(**dict(zip(keys, combination))) for combination in product(*values)]
     
     for params in grid:
         pprint(params)

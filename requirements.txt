@@ -8,7 +8,7 @@ aiofiles==24.1.0
     # via union
 aiohappyeyeballs==2.4.3
     # via aiohttp
-aiohttp==3.10.8
+aiohttp==3.10.9
     # via
     #   adlfs
     #   aiobotocore
@@ -32,7 +32,7 @@ azure-core==1.31.0
     #   azure-storage-blob
 azure-datalake-store==0.0.53
     # via adlfs
-azure-identity==1.18.0
+azure-identity==1.19.0
     # via adlfs
 azure-storage-blob==12.23.1
     # via adlfs
@@ -162,7 +162,7 @@ importlib-metadata==8.5.0
     # via
     #   flytekit
     #   union
-isodate==0.6.1
+isodate==0.7.0
     # via azure-storage-blob
 jaraco-classes==3.4.0
     # via keyring
@@ -201,7 +201,7 @@ markdown-it-py==3.0.0
     # via
     #   flytekit
     #   rich
-markupsafe==2.1.5
+markupsafe==3.0.1
     # via jinja2
 marshmallow==3.22.0
     # via
@@ -301,6 +301,8 @@ polars==1.9.0
     # via nerf (pyproject.toml)
 portalocker==2.10.1
     # via msal-extensions
+propcache==0.2.0
+    # via yarl
 proto-plus==1.24.0
     # via google-api-core
 protobuf==5.28.2
@@ -368,7 +370,7 @@ requests==2.32.3
     #   requests-oauthlib
 requests-oauthlib==2.0.0
     # via google-auth-oauthlib
-rich==13.9.1
+rich==13.9.2
     # via
     #   flytekit
     #   rich-click
@@ -383,7 +385,7 @@ s3fs==2024.9.0
     # via flytekit
 secretstorage==3.3.3
     # via keyring
-sentry-sdk==2.15.0
+sentry-sdk==2.16.0
     # via union
 setuptools==75.1.0
     # via
@@ -392,7 +394,6 @@ setuptools==75.1.0
 six==1.16.0
     # via
     #   azure-core
-    #   isodate
     #   python-dateutil
 statsd==4.0.1
     # via flytekit
@@ -439,9 +440,9 @@ typing-inspect==0.9.0
     # via dataclasses-json
 tzdata==2024.2
     # via pandas
-union==0.1.82
+union==0.1.83
     # via nerf (pyproject.toml)
-unionai-actor==0.1.1
+unionai-actor==0.1.2
     # via union
 urllib3==2.2.3
     # via
@@ -452,7 +453,7 @@ urllib3==2.2.3
     #   sentry-sdk
 wrapt==1.16.0
     # via aiobotocore
-yarl==1.13.1
+yarl==1.14.0
     # via aiohttp
 zipp==3.20.2
     # via importlib-metadata

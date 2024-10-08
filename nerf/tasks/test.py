@@ -10,12 +10,15 @@ from nerf.core.structs import Metric, Result
 
 @fk.task(
     container_image=image,
-    requests=fk.Resources(gpu="1", cpu="16", mem="32Gi"),
-    accelerator=fk.extras.accelerators.A100,
+    requests=fk.Resources(gpu="1", cpu="16", mem="64Gi"),
     cache=True,
     cache_version="#cache-v1",
 )
 def test(image: FlyteFile, result: Result) -> Metric:
+    
+    image.download()
+    result.animation.download()
+    result.model.download()
 
     module = NeRFModule.load_from_checkpoint(result.model.path, image=image.path, params=result.params)
     trainer = Trainer(enable_progress_bar=False)

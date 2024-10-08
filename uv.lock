@@ -740,27 +740,27 @@ wheels = [
 
 [[package]]
 name = "flytekitplugins-deck-standard"
-version = "1.13.6"
+version = "1.13.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "flytekit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/e7/e3/294a0ad166365e3da6f72f100f4ffddb7eaf11c69dbea6717611f81d9ad0/flytekitplugins_deck_standard-1.13.6.tar.gz", hash = "sha256:ac09a848ff62ef9e91637b8a2d49764aa20754b24d4412a99f858134cd0bca5c", size = 5946 }
+sdist = { url = "https://files.pythonhosted.org/packages/51/35/81a89d9acb69d9ee20541bd9adb05726f29b35871b0b40f33fea09c07fd1/flytekitplugins_deck_standard-1.13.7.tar.gz", hash = "sha256:9d7b832273e684e9186160b0f4e9e1931d9c15b62c5a11ec2a3e22fe3e7ba1f8", size = 5936 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/7f/83/c442f5d17cccd19ee17262906997f2b1954d6235274b26b4ebc5acb9dfb1/flytekitplugins_deck_standard-1.13.6-py3-none-any.whl", hash = "sha256:c0cd440eb36afd0f59bda8d97184e9de41d2813764315e99e99ef5ddf97d80b6", size = 6350 },
+    { url = "https://files.pythonhosted.org/packages/71/04/057c35bed7745a870b0ea1c1fcd36120c7db7d775fa71d58c8db311e6017/flytekitplugins_deck_standard-1.13.7-py3-none-any.whl", hash = "sha256:1b7347d8657a1f05c4d9101d050a613488a2cdcde5992456cc2e587c1628ed5c", size = 6350 },
 ]
 
 [[package]]
 name = "flytekitplugins-envd"
-version = "1.13.6"
+version = "1.13.7"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "envd" },
     { name = "flytekit" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/fc/75/2e63c71f3f0d3fe227e4f379c726fbf3f871033b4d2a05d47a12b8702f6d/flytekitplugins_envd-1.13.6.tar.gz", hash = "sha256:2002e1ff5b007f84b6cd5396d6f66ac3084d9526b6f3642a0d07fb9273d4976b", size = 5787 }
+sdist = { url = "https://files.pythonhosted.org/packages/41/cf/90237d9ddb4a02aff5b14a351c0ef14fc290bdb0ae23f6bc97c9c00a884c/flytekitplugins_envd-1.13.7.tar.gz", hash = "sha256:c81dcbb56ed92c836f72e7a2c3a99e035d2c9fc96f06cca512d87326d43e9654", size = 5788 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/fa/e0/f54db3129f72a1a7efcb704dc34465e43228fc20a25a606a2f29e239b91f/flytekitplugins_envd-1.13.6-py3-none-any.whl", hash = "sha256:495ee2fe3e0e2076114c764950f3ec9b2fc466b79af8707bec5152be473c1e73", size = 5390 },
+    { url = "https://files.pythonhosted.org/packages/86/de/a24682240f9ea4ecf1fbacb96e1051520999ceb699662556dfcbd07da0ea/flytekitplugins_envd-1.13.7-py3-none-any.whl", hash = "sha256:527cdaf004eeac057d04e4fdcf333ea78732844bc0742827735d4ff0848ba89c", size = 5390 },
 ]
 
 [[package]]
@@ -1685,8 +1685,8 @@ dev = [
 [package.metadata]
 requires-dist = [
     { name = "flytekit", specifier = "==1.13.7" },
-    { name = "flytekitplugins-deck-standard", specifier = ">=1.13.6" },
-    { name = "flytekitplugins-envd", specifier = ">=1.13.6" },
+    { name = "flytekitplugins-deck-standard", specifier = ">=1.13.5" },
+    { name = "flytekitplugins-envd", specifier = ">=1.13.5" },
     { name = "lightning", specifier = ">=2.4.0" },
     { name = "numpy", specifier = "<2.0" },
     { name = "pandas", specifier = ">=2.2.3" },
@@ -2185,18 +2185,18 @@ wheels = [
 
 [[package]]
 name = "protobuf"
-version = "5.28.2"
+version = "5.27.5"
 source = { registry = "https://pypi.org/simple" }
-sdist = { url = "https://files.pythonhosted.org/packages/b1/a4/4579a61de526e19005ceeb93e478b61d77aa38c8a85ad958ff16a9906549/protobuf-5.28.2.tar.gz", hash = "sha256:59379674ff119717404f7454647913787034f03fe7049cbef1d74a97bb4593f0", size = 422494 }
+sdist = { url = "https://files.pythonhosted.org/packages/d8/a6/94e05400fc84f90f1c1476c23388bf2a3d5b8a5f88fdf1f45dc778ba4412/protobuf-5.27.5.tar.gz", hash = "sha256:7fa81bc550201144a32f4478659da06e0b2ebe4d5303aacce9a202a1c3d5178d", size = 401551 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/e9/30/231764750e0987755b7b8d66771f161e5f002e165d27b72154c776dbabf7/protobuf-5.28.2-cp310-abi3-win32.whl", hash = "sha256:eeea10f3dc0ac7e6b4933d32db20662902b4ab81bf28df12218aa389e9c2102d", size = 419662 },
-    { url = "https://files.pythonhosted.org/packages/7d/46/3fdf7462160135aee6a530f1ec66665b5b4132fa2e1002ab971bc6ec2589/protobuf-5.28.2-cp310-abi3-win_amd64.whl", hash = "sha256:2c69461a7fcc8e24be697624c09a839976d82ae75062b11a0972e41fd2cd9132", size = 431479 },
-    { url = "https://files.pythonhosted.org/packages/37/45/d2a760580f8f2ed2825ba44cb370e0a4011ddef85e728f46ea3dd565a8a5/protobuf-5.28.2-cp38-abi3-macosx_10_9_universal2.whl", hash = "sha256:a8b9403fc70764b08d2f593ce44f1d2920c5077bf7d311fefec999f8c40f78b7", size = 414736 },
-    { url = "https://files.pythonhosted.org/packages/e6/23/ed718dc18e6a561445ece1e7a17d2dda0c634ad9cf663102b47f10005d8f/protobuf-5.28.2-cp38-abi3-manylinux2014_aarch64.whl", hash = "sha256:35cfcb15f213449af7ff6198d6eb5f739c37d7e4f1c09b5d0641babf2cc0c68f", size = 316518 },
-    { url = "https://files.pythonhosted.org/packages/23/08/a1ce0415a115c2b703bfa798f06f0e43ca91dbe29d6180bf86a9287b15e2/protobuf-5.28.2-cp38-abi3-manylinux2014_x86_64.whl", hash = "sha256:5e8a95246d581eef20471b5d5ba010d55f66740942b95ba9b872d918c459452f", size = 316605 },
-    { url = "https://files.pythonhosted.org/packages/2d/27/d10aaae326ffd446893d4d1ef18e22c4ece87eb4273ee560ce4e616f0959/protobuf-5.28.2-cp39-cp39-win32.whl", hash = "sha256:ca53faf29896c526863366a52a8f4d88e69cd04ec9571ed6082fa117fac3ab36", size = 419587 },
-    { url = "https://files.pythonhosted.org/packages/94/12/af94b0654fa6bde64272b2abab39b221544c32e9e911284745569f65e73a/protobuf-5.28.2-cp39-cp39-win_amd64.whl", hash = "sha256:8ddc60bf374785fb7cb12510b267f59067fa10087325b8e1855b898a0d81d276", size = 431552 },
-    { url = "https://files.pythonhosted.org/packages/9b/55/f24e3b801d2e108c48aa2b1b59bb791b5cffba89465cbbf66fc98de89270/protobuf-5.28.2-py3-none-any.whl", hash = "sha256:52235802093bd8a2811abbe8bf0ab9c5f54cca0a751fdd3f6ac2a21438bffece", size = 169566 },
+    { url = "https://files.pythonhosted.org/packages/d9/c9/5ee60cce78a83517b66aaf902c936c6db5b23afd6df7f9906aa67e4931a5/protobuf-5.27.5-cp310-abi3-win32.whl", hash = "sha256:b46647660bc433a43519af7faabe424bf2feb8db6e2293e6906c7aa3a1abefe2", size = 405813 },
+    { url = "https://files.pythonhosted.org/packages/78/46/68408f3a013fee550522930db0eb28df4716c5b2bac5055f00847d6dfc91/protobuf-5.27.5-cp310-abi3-win_amd64.whl", hash = "sha256:5aa37101a985559722e84badf583532b0ec92616a2cc5d3f59f6152f136ca46a", size = 426904 },
+    { url = "https://files.pythonhosted.org/packages/52/11/e372413162ff4da44edf9220eb5d2cd03ff6a4b87a9b7b298ca729ddbb96/protobuf-5.27.5-cp38-abi3-macosx_10_9_universal2.whl", hash = "sha256:83fc15159713bb1de8e24e025d8739c6c9c6856021d2834d6feb0d1d5c6ec3c6", size = 412232 },
+    { url = "https://files.pythonhosted.org/packages/0a/3c/bd25f165ba1bcbc43a0211c962c97007b6d88668a798a2d3c99e7688a08c/protobuf-5.27.5-cp38-abi3-manylinux2014_aarch64.whl", hash = "sha256:56cb4f9ade31597d06a5aca264cb5d9bf445dc07758296004ead080ec8e4087c", size = 307126 },
+    { url = "https://files.pythonhosted.org/packages/34/8a/1538a34d6f57d9a2ef68384ef39cca1e00cb4d19398be2873995a50657c7/protobuf-5.27.5-cp38-abi3-manylinux2014_x86_64.whl", hash = "sha256:aab519ebdc1bd7469e7df4011545ff4f81decad6d02f0185ddbe6ee496f1d940", size = 309244 },
+    { url = "https://files.pythonhosted.org/packages/30/8c/d86c61c37d42dc88a7b6813c35440c3b4da704c4d3e92fe59caa3495cf4a/protobuf-5.27.5-cp39-cp39-win32.whl", hash = "sha256:ff4e9db9a21c090f39a6ac91b89262ff1ce49c1fee589ae87c3386f4ad1b2e27", size = 405919 },
+    { url = "https://files.pythonhosted.org/packages/17/85/6b15dd880209cc00980103f92f23c147a36d5db11ddd0829af362e94ae3b/protobuf-5.27.5-cp39-cp39-win_amd64.whl", hash = "sha256:9dc0a9b61279b04aeff203cf40a3b69bf74e06666ddf264f9860f1e88de01d8e", size = 426906 },
+    { url = "https://files.pythonhosted.org/packages/5b/22/f3dde34910f908b927dfd6870f33adbb963c90360324d33eb334722acd59/protobuf-5.27.5-py3-none-any.whl", hash = "sha256:03a25e0b2b0271bc63fe009d30890ba907fd36dbe2b8e4851da4bb893d251d05", size = 164755 },
 ]
 
 [[package]]
@@ -2727,16 +2727,16 @@ wheels = [
 
 [[package]]
 name = "rich"
-version = "13.9.1"
+version = "13.9.2"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "markdown-it-py" },
     { name = "pygments" },
     { name = "typing-extensions", marker = "python_full_version < '3.11'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/b3/78/87d00a1df7c457ad9aa0139f01b8a11c67209f27f927c503b0109bf2ed6c/rich-13.9.1.tar.gz", hash = "sha256:097cffdf85db1babe30cc7deba5ab3a29e1b9885047dab24c57e9a7f8a9c1466", size = 222907 }
+sdist = { url = "https://files.pythonhosted.org/packages/aa/9e/1784d15b057b0075e5136445aaea92d23955aad2c93eaede673718a40d95/rich-13.9.2.tar.gz", hash = "sha256:51a2c62057461aaf7152b4d611168f93a9fc73068f8ded2790f29fe2b5366d0c", size = 222843 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/ab/71/cd9549551f1aa11cf7e5f92bae5817979e8b3a19e31e8810c15f3f45c311/rich-13.9.1-py3-none-any.whl", hash = "sha256:b340e739f30aa58921dc477b8adaa9ecdb7cecc217be01d93730ee1bc8aa83be", size = 242147 },
+    { url = "https://files.pythonhosted.org/packages/67/91/5474b84e505a6ccc295b2d322d90ff6aa0746745717839ee0c5fb4fdcceb/rich-13.9.2-py3-none-any.whl", hash = "sha256:8c82a3d3f8dcfe9e734771313e606b39d8247bb6b826e196f4914b333b743cf1", size = 242117 },
 ]
 
 [[package]]
@@ -3167,7 +3167,7 @@ wheels = [
 
 [[package]]
 name = "union"
-version = "0.1.70"
+version = "0.1.83"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -3182,6 +3182,7 @@ dependencies = [
     { name = "jinja2" },
     { name = "keyring" },
     { name = "mashumaro" },
+    { name = "protobuf", marker = "platform_system == 'Windows'" },
     { name = "pyyaml" },
     { name = "rich" },
     { name = "rich-click" },
@@ -3189,9 +3190,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "unionai-actor", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bf/d6/eafd68ec1ff8f24ba410a7156beed491be0c1f4abd2bc871f79c9187c2b7/union-0.1.70.tar.gz", hash = "sha256:7437202411680cfccf9952cd79bffa83f48cadff49c65674dbff6ab37811aab8", size = 87459 }
+sdist = { url = "https://files.pythonhosted.org/packages/7b/90/4edfe1fd5b1a0de5f470b3e097f08dbb0138ca8fb8b357fc0be1354ae04d/union-0.1.83.tar.gz", hash = "sha256:22ee416624e0409e708b531cba057e745ee2d849da505979d75550e66e5ed099", size = 89188 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/64/f5/eaf6d56601151943f5c54ccf848ae7c2b54b41f3e3657b1fbb0dd7cc1a35/union-0.1.70-py3-none-any.whl", hash = "sha256:1472ba2ddfc1b96011af1a55094f97653d155fd5efd3ca83c18502e20354013e", size = 117451 },
+    { url = "https://files.pythonhosted.org/packages/48/47/cfb1a5332e3f331ae4cb7f39345ea54ffc8fe52acbf80370e125232b5100/union-0.1.83-py3-none-any.whl", hash = "sha256:81be804792f7a29476926e68b0df2f5b358d8e5aeb414e22218f4bb7b9aee89e", size = 118810 },
 ]
 
 [[package]]

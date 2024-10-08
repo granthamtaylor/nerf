@@ -1,5 +1,6 @@
 import flytekit
 import plotly.express as px
+import plotly
 
 from nerf.orchestration.images import image
 from nerf.core.structs import Metric
@@ -21,6 +22,6 @@ def plot(scores: list[Metric]):
         }
     )
     
-    # render = plotly.io.to_html(fig)
+    render = plotly.io.to_html(fig)
     
-    # print(len(render))
+    flytekit.Deck("my_plot", html=render)

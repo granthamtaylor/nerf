@@ -11,12 +11,13 @@ from nerf.core.callbacks import ParquetBatchWriter
 
 @fk.task(
     container_image=image,
-    requests=fk.Resources(gpu="1", cpu="16", mem="32Gi"),
-    accelerator=fk.extras.accelerators.A100,
+    requests=fk.Resources(gpu="1", cpu="16", mem="64Gi"),
     cache=True,
     cache_version="#cache-v1",
 )
 def fit(params: Hyperparameters, image: FlyteFile) -> Result:
+    
+    image.download()
 
     datapath = Path(fk.current_context().working_directory) / "results.parquet"
 

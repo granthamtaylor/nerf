@@ -1,10 +1,10 @@
 # run workflow locally
 dev:
-  @uv run union run nerf/workflows/train.py train --image='images/pie.jpg'
+  @uv run union run nerf/workflows/train.py train --image='pie.jpg'
 
 # run workflow on remote
 run: freeze
-  @uv run union run --remote --copy auto nerf/workflows/train.py train
+  @uv run union -vv run --remote nerf/workflows/train.py train
 
 # register workflow to remote
 register: freeze

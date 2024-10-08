@@ -93,7 +93,7 @@ def dataloader(self: "NeRFModule", strata: str) -> DataLoader:
     self.dataloaders[strata] = loader = DataLoader(
         pipe,
         batch_size=self.params.batch_size,
-        num_workers=self.params.n_workers,
+        num_workers=os.cpu_count(),
         collate_fn=collate,
         persistent_workers=True,
         pin_memory=True,

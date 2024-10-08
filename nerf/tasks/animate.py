@@ -1,4 +1,4 @@
-import flytekit
+import flytekit as fk
 
 import plotly
 import polars as pl
@@ -9,8 +9,14 @@ from nerf.orchestration.images import image
 from nerf.core.structs import Result
 
 
-@flytekit.task(container_image=image, enable_deck=True)
+@fk.task(
+    container_image=image,
+    requests=fk.Resources(cpu="16", mem="256Gi"),
+    enable_deck=True
+)
 def animate(result: Result):
+
+    result.animation.download()
 
     animation = np.array(
         pl.read_parquet(result.animation.path)
@@ -47,4 +53,4 @@ def animate(result: Result):
 
     print(len(render))
 
-    # flytekit.Deck("my_plot", html=render)
+    fk.Deck("my_plot", html=render)
