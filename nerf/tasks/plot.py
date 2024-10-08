@@ -1,19 +1,27 @@
 import flytekit
-
-import plotly
 import plotly.express as px
+import plotly
 
-from nerf.orchestration import image
+from nerf.orchestration.images import image
+from nerf.core.structs import Metric
 
 
 @flytekit.task(container_image=image, enable_deck=True)
-def animate(results: list[tuple[float, float]]):
-    # Extract x and y values from the list of tuples
-    x_values = [result[0] for result in results]
-    y_values = [result[1] for result in results]
+def plot(scores: list[Metric]):
+
+    loss = [score.loss for score in scores]
+    compression = [score.compression for score in scores]
 
     # Create a scatter plot using Plotly
-    fig = px.scatter(x=x_values, y=y_values, title="Scatter Plot of Results")
-
-    # Return the plotly figure
-    return fig
+    fig = px.scatter(x=loss, y=compression, title="Scatter Plot of Results")
+    
+    fig.show(
+        config={
+            "displaylogo": False,
+            "modeBarButtonsToRemove": ["zoom", "pan", "toImage"],
+        }
+    )
+    
+    render = plotly.io.to_html(fig)
+    
+    flytekit.Deck("my_plot", html=render)

@@ -1,6 +1,5 @@
 import os
 
-import numpy as np
 import pyarrow.parquet as pq
 import lightning.pytorch as lit
 from lightning.pytorch import callbacks
@@ -8,11 +7,6 @@ import polars as pl
 import torch
 
 from nerf.core.structs import InputTensor
-
-
-def get(tensor: torch.Tensor) -> np.ndarray:
-    return tensor.cpu().detach().numpy()
-
 
 class ParquetBatchWriter(callbacks.Callback):
     def __init__(self, path: str | os.PathLike):
@@ -36,15 +30,14 @@ class ParquetBatchWriter(callbacks.Callback):
         df = pl.DataFrame(
             {
                 "epoch": [pl_module.current_epoch] * int(batch.batch_size[0]),
-                "coordinates": get(batch.coordinates.xy),
-                "color": get(outputs["predictions"]),
+                "coordinates": batch.coordinates.xy.cpu().detach().numpy(),
+                "color": outputs["predictions"].cpu().detach().numpy(),
             }
         )
 
         table = df.to_arrow()
 
         if self.writer is None:
-            print(df)
 
             self.schema = table.schema
             self.writer = pq.ParquetWriter(self.path, self.schema)

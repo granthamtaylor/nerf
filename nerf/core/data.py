@@ -20,9 +20,7 @@ class BitMapIterator(torch.utils.data.IterableDataset):
         with Image.open(image) as file:
             self.data = np.array(file)
 
-        self.x, self.y, C = shape = self.data.shape
-
-        print(f"shape: {shape}")
+        self.x, self.y, C = self.data.shape
 
         if C != 3:
             raise ValueError("image must have 3 channels (RGB)")

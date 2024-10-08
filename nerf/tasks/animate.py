@@ -1,18 +1,25 @@
-import flytekit
-from flytekit.types.file import FlyteFile
+import flytekit as fk
 
 import plotly
 import polars as pl
 import numpy as np
 import plotly.express as px
 
-from nerf.orchestration import image
+from nerf.orchestration.images import image
+from nerf.core.structs import Result
 
 
-@flytekit.task(container_image=image, enable_deck=True)
-def animate(predictions: FlyteFile) -> int:
+@fk.task(
+    container_image=image,
+    requests=fk.Resources(cpu="16", mem="256Gi"),
+    enable_deck=True
+)
+def animate(result: Result):
+
+    result.animation.download()
+
     animation = np.array(
-        pl.read_parquet(predictions.path)
+        pl.read_parquet(result.animation.path)
         .select(
             t=pl.col("epoch"),
             x=pl.col("coordinates").arr.first(),
@@ -42,10 +49,8 @@ def animate(predictions: FlyteFile) -> int:
         }
     )
 
-    render = plotly.io.to_html(fig)
+    render = plotly.io.to_html(fig, include_plotlyjs=False)
 
     print(len(render))
 
-    # flytekit.Deck("my_plot", html=render)
-
-    return len(render)
+    fk.Deck("my_plot", html=render)
