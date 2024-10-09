@@ -15,13 +15,11 @@ def plot(scores: list[Metric]):
     # Create a scatter plot using Plotly
     fig = px.scatter(x=loss, y=compression, title="Scatter Plot of Results")
     
-    fig.show(
-        config={
-            "displaylogo": False,
-            "modeBarButtonsToRemove": ["zoom", "pan", "toImage"],
-        }
-    )
-    
-    render = plotly.io.to_html(fig)
+    config={
+        "displaylogo": False,
+        "modeBarButtonsToRemove": ["zoom", "pan", "toImage"],
+    }
+
+    render = plotly.io.to_html(fig, config=config)
     
     flytekit.Deck("my_plot", html=render)

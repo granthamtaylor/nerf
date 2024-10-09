@@ -172,3 +172,5 @@ sphinx_source/
 .localized
 
 lightning_logs/
+
+wandb/

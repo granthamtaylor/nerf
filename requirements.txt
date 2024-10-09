@@ -2,7 +2,7 @@
 #    uv pip compile pyproject.toml --python-platform linux
 adlfs==2024.7.0
     # via flytekit
-aiobotocore==2.15.1
+aiobotocore==2.15.2
     # via s3fs
 aiofiles==24.1.0
     # via union
@@ -36,7 +36,7 @@ azure-identity==1.19.0
     # via adlfs
 azure-storage-blob==12.23.1
     # via adlfs
-botocore==1.35.23
+botocore==1.35.36
     # via aiobotocore
 cachetools==5.5.0
     # via google-auth
@@ -48,13 +48,14 @@ cffi==1.17.1
     # via
     #   azure-datalake-store
     #   cryptography
-charset-normalizer==3.3.2
+charset-normalizer==3.4.0
     # via requests
 click==8.1.7
     # via
     #   flytekit
     #   rich-click
     #   union
+    #   wandb
 cloudpickle==3.0.0
     # via
     #   flytekit
@@ -70,16 +71,24 @@ cryptography==43.0.1
     #   secretstorage
 dataclasses-json==0.5.9
     # via flytekit
-decorator==5.1.1
-    # via gcsfs
+decorator==4.4.2
+    # via
+    #   gcsfs
+    #   moviepy
 diskcache==5.6.3
     # via flytekit
 docker==7.1.0
     # via flytekit
+docker-pycreds==0.4.0
+    # via wandb
 docstring-parser==0.16
     # via flytekit
 envd==0.3.45
     # via flytekitplugins-envd
+faker==30.3.0
+    # via nerf (pyproject.toml)
+ffmpeg==1.4
+    # via nerf (pyproject.toml)
 filelock==3.16.1
     # via
     #   torch
@@ -93,10 +102,13 @@ flytekit==1.13.7
     #   nerf (pyproject.toml)
     #   flytekitplugins-deck-standard
     #   flytekitplugins-envd
+    #   flytekitplugins-wandb
     #   union
-flytekitplugins-deck-standard==1.13.7
+flytekitplugins-deck-standard==1.13.8
     # via nerf (pyproject.toml)
-flytekitplugins-envd==1.13.7
+flytekitplugins-envd==1.13.8
+    # via nerf (pyproject.toml)
+flytekitplugins-wandb==1.13.8
     # via nerf (pyproject.toml)
 frozenlist==1.4.1
     # via
@@ -114,7 +126,11 @@ fsspec==2024.9.0
     #   union
 gcsfs==2024.9.0.post1
     # via flytekit
-google-api-core==2.20.0
+gitdb==4.0.11
+    # via gitpython
+gitpython==3.1.43
+    # via wandb
+google-api-core==2.21.0
     # via
     #   google-cloud-core
     #   google-cloud-storage
@@ -158,11 +174,15 @@ idna==3.10
     # via
     #   requests
     #   yarl
+imageio==2.35.1
+    # via moviepy
+imageio-ffmpeg==0.5.1
+    # via moviepy
 importlib-metadata==8.5.0
     # via
     #   flytekit
     #   union
-isodate==0.7.0
+isodate==0.7.2
     # via azure-storage-blob
 jaraco-classes==3.4.0
     # via keyring
@@ -224,6 +244,8 @@ more-itertools==10.5.0
     # via
     #   jaraco-classes
     #   jaraco-functools
+moviepy==1.0.3
+    # via nerf (pyproject.toml)
 mpmath==1.3.0
     # via sympy
 msal==1.31.0
@@ -244,6 +266,8 @@ networkx==3.3
 numpy==1.26.4
     # via
     #   nerf (pyproject.toml)
+    #   imageio
+    #   moviepy
     #   pandas
     #   pyarrow
     #   tensordict
@@ -294,13 +318,19 @@ packaging==24.1
 pandas==2.2.3
     # via nerf (pyproject.toml)
 pillow==10.4.0
-    # via nerf (pyproject.toml)
+    # via
+    #   nerf (pyproject.toml)
+    #   imageio
+platformdirs==4.3.6
+    # via wandb
 plotly==5.24.1
     # via nerf (pyproject.toml)
 polars==1.9.0
     # via nerf (pyproject.toml)
 portalocker==2.10.1
     # via msal-extensions
+proglog==0.1.10
+    # via moviepy
 propcache==0.2.0
     # via yarl
 proto-plus==1.24.0
@@ -314,8 +344,11 @@ protobuf==5.28.2
     #   grpcio-status
     #   proto-plus
     #   protoc-gen-openapiv2
+    #   wandb
 protoc-gen-openapiv2==0.0.1
     # via flyteidl
+psutil==6.0.0
+    # via wandb
 pyarrow==17.0.0
     # via nerf (pyproject.toml)
 pyasn1==0.6.1
@@ -340,6 +373,7 @@ python-dateutil==2.9.0.post0
     # via
     #   botocore
     #   croniter
+    #   faker
     #   pandas
 python-json-logger==2.0.7
     # via flytekit
@@ -357,6 +391,7 @@ pyyaml==6.0.2
     #   lightning
     #   pytorch-lightning
     #   union
+    #   wandb
 requests==2.32.3
     # via
     #   azure-core
@@ -366,8 +401,10 @@ requests==2.32.3
     #   gcsfs
     #   google-api-core
     #   google-cloud-storage
+    #   moviepy
     #   msal
     #   requests-oauthlib
+    #   wandb
 requests-oauthlib==2.0.0
     # via google-auth-oauthlib
 rich==13.9.2
@@ -386,15 +423,24 @@ s3fs==2024.9.0
 secretstorage==3.3.3
     # via keyring
 sentry-sdk==2.16.0
-    # via union
+    # via
+    #   union
+    #   wandb
+setproctitle==1.3.3
+    # via wandb
 setuptools==75.1.0
     # via
+    #   imageio-ffmpeg
     #   lightning-utilities
     #   torch
+    #   wandb
 six==1.16.0
     # via
     #   azure-core
+    #   docker-pycreds
     #   python-dateutil
+smmap==5.0.1
+    # via gitdb
 statsd==4.0.1
     # via flytekit
 sympy==1.13.3
@@ -417,6 +463,8 @@ torchmetrics==1.4.2
 tqdm==4.66.5
     # via
     #   lightning
+    #   moviepy
+    #   proglog
     #   pytorch-lightning
 triton==3.0.0
     # via torch
@@ -425,6 +473,7 @@ typing-extensions==4.12.2
     #   azure-core
     #   azure-identity
     #   azure-storage-blob
+    #   faker
     #   flytekit
     #   lightning
     #   lightning-utilities
@@ -440,7 +489,7 @@ typing-inspect==0.9.0
     # via dataclasses-json
 tzdata==2024.2
     # via pandas
-union==0.1.83
+union==0.1.84
     # via nerf (pyproject.toml)
 unionai-actor==0.1.2
     # via union
@@ -451,6 +500,10 @@ urllib3==2.2.3
     #   flytekit
     #   requests
     #   sentry-sdk
+wandb==0.18.3
+    # via
+    #   nerf (pyproject.toml)
+    #   flytekitplugins-wandb
 wrapt==1.16.0
     # via aiobotocore
 yarl==1.14.0
