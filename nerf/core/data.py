@@ -25,9 +25,6 @@ class BitMapIterator(torch.utils.data.IterableDataset):
         if C != 3:
             raise ValueError("image must have 3 channels (RGB)")
 
-    def __len__(self) -> int:
-        return self.x * self.y
-
     def generate(self):
         n_workers: int = torch.utils.data.get_worker_info().num_workers
         worker: int = torch.utils.data.get_worker_info().id

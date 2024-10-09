@@ -2,8 +2,6 @@ from typing import Annotated
 
 from flytekit.types.file import FlyteFile
 
-
-import dataclasses
 from pydantic.dataclasses import dataclass
 from pydantic import Field
 from tensordict import tensorclass
@@ -40,13 +38,12 @@ class PixelTensor:
     def convert(self, predictions: torch.Tensor) -> torch.Tensor:
         return predictions.mul(MAXBYTEVALUE).type(torch.int32)
 
-
 @tensorclass
 class InputTensor:
     coordinates: CoordinateTensor
     color: PixelTensor
 
-@dataclasses.dataclass
+@dataclass
 class SearchSpace:
     batch_size: list[int]
     d_model: list[int]

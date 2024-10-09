@@ -6,3 +6,5 @@ image = fk.ImageSpec(
     requirements="requirements.txt",
     apt_packages=["build-essential"],
 )
+
+wandb_secret = fk.Secret(key="WANDB_API_KEY")
