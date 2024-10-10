@@ -8,15 +8,15 @@ from nerf.core.structs import Metric, SearchSpace
 
 @fk.workflow
 def train(
-    image: FlyteFile="album.jpg",
+    image: FlyteFile="assets/album.jpg",
     overrides: SearchSpace = SearchSpace(
-        batch_size=[256],
+        batch_size=[512],
         d_model=[64, 128, 256],
-        n_bands=[8, 12],
-        n_layers=[4, 8, 16, 32],
+        n_bands=[8],
+        n_layers=[4, 8, 16],
         offset=[2],
-        max_epochs=[64],
-        learning_rate=[0.001, 0.0001],
+        max_epochs=[16],
+        learning_rate=[0.0001],
         patience=[128],
     )
 ) -> list[Metric]:
