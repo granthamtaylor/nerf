@@ -8,7 +8,7 @@ from nerf.core.structs import Hyperparameters, SearchSpace
 
 @flytekit.task(container_image=image, cache=True, cache_version="#cache-v1",)
 def gridsearch(searchspace: SearchSpace) -> list[Hyperparameters]:
-    
+    """Generate a grid of hyperparameters"""
     
     overrides = {key: value for key, value in vars(searchspace).items() if value is not None}
     

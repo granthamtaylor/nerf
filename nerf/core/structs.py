@@ -12,6 +12,8 @@ MAXBYTEVALUE = 255
 
 @tensorclass
 class CoordinateTensor:
+    """A tensor of XY coordinates"""
+
     x: torch.Tensor
     y: torch.Tensor
 
@@ -22,6 +24,8 @@ class CoordinateTensor:
 
 @tensorclass
 class PixelTensor:
+    """A tensor of RGB pixel values"""
+
     red: torch.Tensor
     green: torch.Tensor
     blue: torch.Tensor
@@ -40,11 +44,15 @@ class PixelTensor:
 
 @tensorclass
 class InputTensor:
+    """A tensor of input data"""
+
     coordinates: CoordinateTensor
     color: PixelTensor
 
 @dataclass
 class SearchSpace:
+    """A search space for hyperparameters"""
+
     batch_size: list[int]
     d_model: list[int]
     n_bands: list[int]
@@ -57,6 +65,8 @@ class SearchSpace:
 
 @dataclass
 class Hyperparameters:
+    """Hyperparameters for the model"""
+
     batch_size: Annotated[int, Field(gt=0, le=2048)] = 256
     d_model: Annotated[int, Field(gt=1, le=256)] = 64
     n_bands: Annotated[int, Field(gt=1, le=16)] = 8
@@ -69,11 +79,15 @@ class Hyperparameters:
 
 @dataclass
 class Result:
+    """The result of a trained model"""
+
     animation: FlyteFile
     model: FlyteFile
     params: Hyperparameters
 
 @dataclass
 class Metric:
+    """Metrics for the model's performance"""
+
     loss: float
     compression: float

@@ -6,6 +6,7 @@ from nerf.core.structs import Hyperparameters
 
 @flytekit.task(container_image=image)
 def label(params: Hyperparameters) -> str:
+    """Generate a label for the model"""
     
     Faker.seed(hash(tuple(vars(params).values())))
     

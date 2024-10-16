@@ -17,6 +17,7 @@ from nerf.core.structs import Metric, Result
     cache_version="#cache-v1",
 )
 def test(image: FlyteFile, result: Result, name: str) -> Metric:
+    """Test the model on the image"""
     
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)

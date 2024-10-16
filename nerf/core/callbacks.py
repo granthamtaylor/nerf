@@ -9,6 +9,9 @@ import torch
 from nerf.core.structs import InputTensor
 
 class ParquetBatchWriter(callbacks.Callback):
+
+    """A callback to write batches to a parquet file"""
+
     def __init__(self, path: str | os.PathLike):
         super().__init__()
 

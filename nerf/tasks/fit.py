@@ -20,6 +20,7 @@ from nerf.core.callbacks import ParquetBatchWriter
     cache_version="#cache-v1",
 )
 def fit(params: Hyperparameters, image: FlyteFile, name: str) -> Result:
+    """Fit the model to the image"""
     
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)

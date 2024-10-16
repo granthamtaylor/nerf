@@ -8,6 +8,7 @@ from nerf.core.structs import Metric
 
 @flytekit.task(container_image=image, enable_deck=True)
 def plot(scores: list[Metric]):
+    """Plot the image compression vs loss"""
 
     loss = [score.loss for score in scores]
     compression = [score.compression for score in scores]

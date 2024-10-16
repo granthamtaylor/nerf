@@ -20,6 +20,7 @@ def train(
         patience=[128],
     )
 ) -> list[Metric]:
+    """Train a model on the image"""
     
     
     grid = tasks.gridsearch(searchspace=overrides)

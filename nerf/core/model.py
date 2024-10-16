@@ -12,6 +12,8 @@ from nerf.core.data import BitMapIterator, collate
 
 
 class FourierEncoder(torch.nn.Module):
+    """A Fourier encoder"""
+
     def __init__(self, params: Hyperparameters) -> None:
         super().__init__()
 
@@ -33,6 +35,8 @@ class FourierEncoder(torch.nn.Module):
 
 
 class MLP(torch.nn.Module):
+    """A multi-layer perceptron"""
+
     def __init__(self, params: Hyperparameters):
         super().__init__()
 
@@ -87,6 +91,8 @@ class MLP(torch.nn.Module):
 
 
 def dataloader(self: "NeRFModule", strata: str) -> DataLoader:
+    """Create a dataloader for the given strata"""
+
     assert strata in ["train", "validate", "test", "predict"]
 
     pipe = self.pipes[strata]
@@ -104,6 +110,8 @@ def dataloader(self: "NeRFModule", strata: str) -> DataLoader:
 
 
 def step(self: "NeRFModule", inputs: InputTensor, strata: str) -> dict[str, torch.Tensor]:
+    """Perform a step for the given strata"""
+
     assert strata in ["train", "validate", "test", "predict"]
 
     predictions = self.forward(inputs.coordinates)
@@ -125,6 +133,8 @@ MAPPING: dict[str, list[str]] = dict(
 
 
 class NeRFModule(lit.LightningModule):
+    """A NeRF module"""
+
     def __init__(
         self,
         params: Hyperparameters,

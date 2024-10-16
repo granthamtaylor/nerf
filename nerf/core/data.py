@@ -14,6 +14,8 @@ def collate(batch: list[InputTensor]) -> InputTensor:
 
 
 class BitMapIterator(torch.utils.data.IterableDataset):
+    """An iterator for a bitmap image"""
+
     def __init__(self, image: os.PathLike) -> None:
         super().__init__()
 

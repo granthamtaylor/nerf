@@ -1,4 +1,3 @@
-import os
 import flytekit
 
 import wandb
@@ -17,6 +16,7 @@ from nerf.core.structs import Result
     cache_version="#cache-v1",
 )
 def animate(result: Result, name: str):
+    """Animate the image over training epochs"""
     
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)
