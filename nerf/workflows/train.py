@@ -1,12 +1,12 @@
 from functools import partial
 
-import flytekit as fk
+import flytekit
 from flytekit.types.file import FlyteFile
 
 from nerf import tasks
 from nerf.core.structs import Metric, SearchSpace
 
-@fk.workflow
+@flytekit.workflow
 def train(
     image: FlyteFile="assets/album.jpg",
     overrides: SearchSpace = SearchSpace(
@@ -23,11 +23,11 @@ def train(
     
     
     grid = tasks.gridsearch(searchspace=overrides)
-    names = fk.map_task(tasks.label)(params=grid)
-    results = fk.map_task(partial(tasks.fit, image=image))(params=grid, name=names)
-    scores = fk.map_task(partial(tasks.test, image=image))(result=results, name=names)
+    names = flytekit.map_task(tasks.label)(params=grid)
+    results = flytekit.map_task(partial(tasks.fit, image=image))(params=grid, name=names)
+    scores = flytekit.map_task(partial(tasks.test, image=image))(result=results, name=names)
 
-    fk.map_task(tasks.animate)(result=results, name=names)
+    flytekit.map_task(tasks.animate)(result=results, name=names)
     tasks.plot(scores=scores)
 
     return scores

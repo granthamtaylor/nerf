@@ -1,10 +1,10 @@
-import flytekit as fk
+import flytekit
 from faker import Faker
 
 from nerf.orchestration.images import image
 from nerf.core.structs import Hyperparameters
 
-@fk.task(container_image=image)
+@flytekit.task(container_image=image)
 def label(params: Hyperparameters) -> str:
     
     Faker.seed(hash(tuple(vars(params).values())))

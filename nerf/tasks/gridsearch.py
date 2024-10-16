@@ -1,12 +1,12 @@
 from itertools import product
 
-import flytekit as fk
+import flytekit
 from rich.pretty import pprint
 
 from nerf.orchestration.images import image
 from nerf.core.structs import Hyperparameters, SearchSpace
 
-@fk.task(container_image=image, cache=True, cache_version="#cache-v1",)
+@flytekit.task(container_image=image, cache=True, cache_version="#cache-v1",)
 def gridsearch(searchspace: SearchSpace) -> list[Hyperparameters]:
     
     
