@@ -2,7 +2,7 @@ import flytekit
 import plotly.express as px
 import plotly
 
-from nerf.orchestration.images import image
+from nerf.orchestration.constants import image
 from nerf.core.structs import Metric
 
 

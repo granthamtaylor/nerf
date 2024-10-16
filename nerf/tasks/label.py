@@ -1,7 +1,7 @@
 import flytekit
 from faker import Faker
 
-from nerf.orchestration.images import image
+from nerf.orchestration.constants import image
 from nerf.core.structs import Hyperparameters
 
 @flytekit.task(container_image=image)

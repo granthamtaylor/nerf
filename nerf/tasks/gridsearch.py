@@ -3,7 +3,7 @@ from itertools import product
 import flytekit
 from rich.pretty import pprint
 
-from nerf.orchestration.images import image
+from nerf.orchestration.constants import image
 from nerf.core.structs import Hyperparameters, SearchSpace
 
 @flytekit.task(container_image=image, cache=True, cache_version="#cache-v1",)

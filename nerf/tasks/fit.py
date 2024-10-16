@@ -8,7 +8,7 @@ import flytekit
 from flytekit.types.file import FlyteFile
 
 from nerf.core.model import NeRFModule
-from nerf.orchestration.images import image, wandb_secret
+from nerf.orchestration.constants import image, wandb_secret
 from nerf.core.structs import Hyperparameters, Result
 from nerf.core.callbacks import ParquetBatchWriter
 

@@ -4,7 +4,7 @@ import wandb
 import polars as pl
 import numpy as np
 
-from nerf.orchestration.images import image, wandb_secret
+from nerf.orchestration.constants import image, wandb_secret
 from nerf.core.structs import Result
 
 
