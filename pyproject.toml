@@ -7,7 +7,7 @@ requires-python = ">=3.9,<3.12"
 dependencies = [
     "faker>=30.3.0",
     "ffmpeg>=1.4",
-    "flytekit==1.13.7",
+    "flytekit>=1.13.8",
     "flytekitplugins-deck-standard>=1.13.5",
     "flytekitplugins-envd>=1.13.5",
     "lightning>=2.4.0",
@@ -21,7 +21,7 @@ dependencies = [
     "pydantic>=2.9.2",
     "tensordict>=0.5.0",
     "torch>=2.4.1",
-    "union>=0.1.70",
+    "union>=0.1.83",
     "wandb>=0.18.3",
 ]
 

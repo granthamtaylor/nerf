@@ -21,7 +21,7 @@ def animate(result: Result, name: str):
     key = fk.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)
 
-    with wandb.init(project='nerf', id=name, reinit=True) as run:
+    with wandb.init(project='nerf', id=name) as run:
 
         result.animation.download()    
 
