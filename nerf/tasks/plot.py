@@ -13,7 +13,14 @@ def plot(scores: list[Metric]):
     compression = [score.compression for score in scores]
 
     # Create a scatter plot using Plotly
-    fig = px.scatter(x=loss, y=compression, title="Scatter Plot of Results")
+    fig = px.scatter(
+        x=loss,
+        y=compression,
+        title="Image Compression vs Loss",
+        labels={"x": "Loss", "y": "Compression"}
+    )
+    
+    
     
     config={
         "displaylogo": False,

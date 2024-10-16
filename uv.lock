@@ -728,7 +728,7 @@ wheels = [
 
 [[package]]
 name = "flytekit"
-version = "1.13.7"
+version = "1.13.8"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "adlfs" },
@@ -767,9 +767,9 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "urllib3" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/bc/a3/4a205394fc9e6ecf058b700f5eb518e647913ea52d222dac2fbb5c06bd7b/flytekit-1.13.7.tar.gz", hash = "sha256:09aaf7b87524465914cfb6306ca81fd5ef69c2015a1e2d66d40139d81bd9bacd", size = 488724 }
+sdist = { url = "https://files.pythonhosted.org/packages/9f/da/a5806725e12a085b45fb1e276d851a6757f6d2d9ac803814f9bcf18943e1/flytekit-1.13.8.tar.gz", hash = "sha256:fdcc0d479b678ae4f588a37fd239d6e5c6e9d3bf8aa6d9ac12e71a0f0e88387f", size = 488703 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/17/79/12bcfa162e2c8a1944e420cb986a4ad5d3a9115a4f1034c49a9bf8d4bfce/flytekit-1.13.7-py3-none-any.whl", hash = "sha256:ef72772a2a5869bbecd20ef9fb12064f088dc7433b7c644b248b9d7b13959a39", size = 588996 },
+    { url = "https://files.pythonhosted.org/packages/ae/4d/10f1bdbbdcb2aa879a2491c48c7f535176f13cd0073b525431aab0594662/flytekit-1.13.8-py3-none-any.whl", hash = "sha256:6f4651b26283a3f26c80cfedec8ff300c5404f2dcf56ebba5dcc1e90ecd6055c", size = 589081 },
 ]
 
 [[package]]
@@ -1792,7 +1792,7 @@ dev = [
 requires-dist = [
     { name = "faker", specifier = ">=30.3.0" },
     { name = "ffmpeg", specifier = ">=1.4" },
-    { name = "flytekit", specifier = "==1.13.7" },
+    { name = "flytekit", specifier = ">=1.13.8" },
     { name = "flytekitplugins-deck-standard", specifier = ">=1.13.5" },
     { name = "flytekitplugins-envd", specifier = ">=1.13.5" },
     { name = "lightning", specifier = ">=2.4.0" },
@@ -1806,7 +1806,7 @@ requires-dist = [
     { name = "pydantic", specifier = ">=2.9.2" },
     { name = "tensordict", specifier = ">=0.5.0" },
     { name = "torch", specifier = ">=2.4.1" },
-    { name = "union", specifier = ">=0.1.70" },
+    { name = "union", specifier = ">=0.1.83" },
     { name = "wandb", specifier = ">=0.18.3" },
 ]
 
@@ -3362,7 +3362,7 @@ wheels = [
 
 [[package]]
 name = "union"
-version = "0.1.83"
+version = "0.1.85"
 source = { registry = "https://pypi.org/simple" }
 dependencies = [
     { name = "aiofiles" },
@@ -3385,17 +3385,17 @@ dependencies = [
     { name = "typing-extensions" },
     { name = "unionai-actor", marker = "platform_machine == 'x86_64' and platform_system == 'Linux'" },
 ]
-sdist = { url = "https://files.pythonhosted.org/packages/7b/90/4edfe1fd5b1a0de5f470b3e097f08dbb0138ca8fb8b357fc0be1354ae04d/union-0.1.83.tar.gz", hash = "sha256:22ee416624e0409e708b531cba057e745ee2d849da505979d75550e66e5ed099", size = 89188 }
+sdist = { url = "https://files.pythonhosted.org/packages/9c/87/a785f4d42a57cc36bbc6bba56b17601c49d043aec3240458daf855cf7e77/union-0.1.85.tar.gz", hash = "sha256:0effce702ebdcc3b202742d441370477d41e6e31ac78fa6cf07cb60b7d3a8855", size = 85981 }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/48/47/cfb1a5332e3f331ae4cb7f39345ea54ffc8fe52acbf80370e125232b5100/union-0.1.83-py3-none-any.whl", hash = "sha256:81be804792f7a29476926e68b0df2f5b358d8e5aeb414e22218f4bb7b9aee89e", size = 118810 },
+    { url = "https://files.pythonhosted.org/packages/d2/8a/daf96c74b508f753e2038878de8cd06067a42ea6bb149901ee9abfc21e56/union-0.1.85-py3-none-any.whl", hash = "sha256:ce1c3e83f92e1e505da50f4d92ead3b10524d4040f939d468fb9fd96c45f1b6a", size = 119077 },
 ]
 
 [[package]]
 name = "unionai-actor"
-version = "0.1.1"
+version = "0.1.2"
 source = { registry = "https://pypi.org/simple" }
 wheels = [
-    { url = "https://files.pythonhosted.org/packages/43/36/77a89be6ed58f9f1c8e6e8250192e23a620a682d0495634fb40062a4c300/unionai_actor-0.1.1-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9166437826e7e2dfc6f9595f64325a248383289c74c4ae87ab8b0167498e2600", size = 1808488 },
+    { url = "https://files.pythonhosted.org/packages/3f/ac/8872081ce9faa88faa54a3456b59aeb93a364c6d3e77d4f2442027f3d338/unionai_actor-0.1.2-cp38-abi3-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:45061144067cc1675e73e6fbd46b918357895a444dbe2a46f97d76eb2a63be0c", size = 1849398 },
 ]
 
 [[package]]
