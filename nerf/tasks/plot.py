@@ -2,11 +2,10 @@ import flytekit
 import plotly.express as px
 import plotly
 
-from nerf.orchestration.constants import image
+from nerf.orchestration.constants import context
 from nerf.core.structs import Metric
 
-
-@flytekit.task(container_image=image, enable_deck=True)
+@context["basic"]
 def plot(scores: list[Metric]):
     """Plot the image compression vs loss"""
 

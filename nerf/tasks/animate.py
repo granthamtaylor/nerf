@@ -4,26 +4,21 @@ import wandb
 import polars as pl
 import numpy as np
 
-from nerf.orchestration.constants import image, wandb_secret
+from nerf.orchestration.constants import context
 from nerf.core.structs import Result
 
 
-@flytekit.task(
-    container_image=image,
-    requests=flytekit.Resources(gpu="1", cpu="16", mem="64Gi"),
-    secret_requests=[wandb_secret],
-    cache=True,
-    cache_version="#cache-v1",
-)
+@context['gpu']
 def animate(result: Result, name: str):
     """Animate the image over training epochs"""
     
+    result.animation.download()
+
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)
 
     with wandb.init(project='nerf', id=name) as run:
 
-        result.animation.download()    
 
         # LWHC
         animation = np.array(

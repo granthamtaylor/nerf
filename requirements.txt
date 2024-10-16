@@ -87,7 +87,7 @@ docstring-parser==0.16
     # via flytekit
 envd==0.3.45
     # via flytekitplugins-envd
-faker==30.4.0
+faker==30.5.0
     # via nerf (pyproject.toml)
 ffmpeg==1.4
     # via nerf (pyproject.toml)

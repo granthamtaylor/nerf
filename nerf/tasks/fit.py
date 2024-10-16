@@ -8,24 +8,18 @@ import flytekit
 from flytekit.types.file import FlyteFile
 
 from nerf.core.model import NeRFModule
-from nerf.orchestration.constants import image, wandb_secret
+from nerf.orchestration.constants import context
 from nerf.core.structs import Hyperparameters, Result
 from nerf.core.callbacks import ParquetBatchWriter
 
-@flytekit.task(
-    container_image=image,
-    requests=flytekit.Resources(gpu="1", cpu="16", mem="64Gi"),
-    secret_requests=[wandb_secret],
-    cache=True,
-    cache_version="#cache-v1",
-)
+@context['gpu']
 def fit(params: Hyperparameters, image: FlyteFile, name: str) -> Result:
     """Fit the model to the image"""
     
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)
     
-    with wandb.init(project='nerf', id=name, reinit=True):
+    with wandb.init(project='nerf', id=name):
         
         image.download()
 
@@ -49,8 +43,6 @@ def fit(params: Hyperparameters, image: FlyteFile, name: str) -> Result:
 
         animation = FlyteFile(str(datapath))
         model = FlyteFile(checkpointer.best_model_path)
-        
-        wandb.finish()
         
     print(datapath)
 

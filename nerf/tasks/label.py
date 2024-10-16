@@ -1,10 +1,9 @@
-import flytekit
 from faker import Faker
 
-from nerf.orchestration.constants import image
+from nerf.orchestration.constants import context
 from nerf.core.structs import Hyperparameters
 
-@flytekit.task(container_image=image)
+@context['basic'](cache=False)
 def label(params: Hyperparameters) -> str:
     """Generate a label for the model"""
     
