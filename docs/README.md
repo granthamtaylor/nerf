@@ -1,8 +1,6 @@
 # Neural Radiance Fields - Flyte Tutorial
 
-This repository contains a basic tutorial on using [Flyte](https://flyte.org/) with Neural Radiance Fields (NeRF).
-
-Flyte is a workflow automation platform for complex, mission-critical data and machine learning processes.
+This repository contains a basic tutorial on using [Flyte](https://flyte.org/) to train Neural Radiance Field (NeRF) models to compress basic bitmap images.
 
 ## Table of Contents
 
@@ -12,7 +10,7 @@ Flyte is a workflow automation platform for complex, mission-critical data and m
 
 ## Introduction
 
-Neural Radiance Fields (NeRF) is a method for representing 3D scenes using neural networks. This tutorial demonstrates how to use Flyte to orchestrate and manage the training and evaluation of a NeRF model.
+Neural Radiance Fields (NeRF) is a method for representing 3D scenes using neural networks. This tutorial demonstrates how to use Flyte to orchestrate and manage the training and evaluation of a NeRF model for basic 2D images.
 
 ## Setup
 
@@ -21,12 +19,18 @@ To get started, follow these steps:
 1. **Clone the repository:**
 
     ```sh
-    git clone https://github.com/grantham/nerf
+    git clone https://github.com/granthamtaylor/nerf
     ```
 
 2. **Install the required dependencies:**
 
+    - `uv`
+    - `just`
+
+3 **Initialiize python environment**
+
     ```sh
+    uv venv
     uv sync
     ```
 
