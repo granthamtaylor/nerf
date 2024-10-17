@@ -6,23 +6,17 @@ import flytekit
 from flytekit.types.file import FlyteFile
 
 from nerf.core.model import NeRFModule
-from nerf.orchestration.constants import image, wandb_secret
+from nerf.orchestration.constants import context
 from nerf.core.structs import Metric, Result
 
-@flytekit.task(
-    container_image=image,
-    requests=flytekit.Resources(gpu="1", cpu="16", mem="64Gi"),
-    secret_requests=[wandb_secret],
-    cache=True,
-    cache_version="#cache-v1",
-)
+@context['gpu']
 def test(image: FlyteFile, result: Result, name: str) -> Metric:
     """Test the model on the image"""
     
     key = flytekit.current_context().secrets.get(key="WANDB_API_KEY")
     wandb.login(key=key)
     
-    with wandb.init(project='nerf', id=name, reinit=True) as run:
+    with wandb.init(project='nerf', id=name) as run:
 
         image.download()
         result.animation.download()
