@@ -22,7 +22,6 @@ def train(
 ) -> list[Metric]:
     """Train a model on the image"""
     
-    
     grid = tasks.gridsearch(searchspace=overrides)
     names = flytekit.map_task(tasks.label)(params=grid)
     results = flytekit.map_task(partial(tasks.fit, image=image))(params=grid, name=names)

@@ -19,9 +19,7 @@ def plot(scores: list[Metric]):
         title="Image Compression vs Loss",
         labels={"x": "Loss", "y": "Compression"}
     )
-    
-    
-    
+
     config={
         "displaylogo": False,
         "modeBarButtonsToRemove": ["zoom", "pan", "toImage"],
